@@ -1,0 +1,62 @@
+<%-include("partials/header")%>
+
+  <div class="container-fluid">
+    <h1>Registration</h1>
+    <form class="" action="/registration" method="post">
+    <div class="container-fluid">
+      <h4>Account details</h4>
+      <label for="emailId">Email</label>
+      <input type="email" id="emailId" name="userEmailInput" value="">
+      <label for="userPassword">Password</label>
+      <input type="password" name="userPasswordInput" value="" id="userPassword">
+      <label for="userConfPassword">Confirm Password</label>
+      <input type="password" name="userConfPasswordInput" value="" id="userConfPassword">
+    </div>
+    <div class="container-fluid">
+      <h4>Personal details of Patient</h4>
+      <label for="nameInput">Full Name</label>
+      <input type="text" id="nameInput" name="userNameInput" value="">
+      <label for="mobileNoInput">Mobile number</label>
+      <input type="text" id="ccInput" name="userCcInput" value="">
+      <input type="text" name="userMobNoInput" value="" id="mobileNoInput">
+      <label for="userAddress">text</label>
+      <textarea name="userAddressInput" rows="2"></textarea>
+      <label for="userCountry">Country</label>
+      <select class="form-control" id="userCountry" name="userCountryInput">
+      <option>India</option>
+      </select>
+      <label for="userState">State</label>
+      <select class="form-control" id="userState" name="userStateInput">
+      <option>Karnataka</option>
+      </select>
+      <label for="cityInput">City</label>
+      <input type="text" id="cityInput" name="userCityInput" value="">
+      <label for="zipInput">Zip code</label>
+      <input type="text" id="zipInput" name="userZipInput" value="">
+    </div>
+    <div class="container-fluid">
+      <h4>Other details of Patient</h4>
+      <label for="genderInput">Gender:</label>
+      <input class="form-check-input" type="radio" name="userGender" id="userMale">
+      <label class="form-check-label" for="userMale">Male</label>
+      <input class="form-check-input" type="radio" name="userGender" id="userFemale">
+      <label class="form-check-label" for="userFemale">Female</label>
+      <input class="form-check-input" type="radio" name="userGender" id="userOthers">
+      <label class="form-check-label" for="userOthers">Others</label>
+      <label for="dobInput">Date of Birth</label>
+      <input type="date" name="userDobInput" value="" id="dobInput">
+      <label for="userBgroup">Blood group</label>
+      <input type="text" id="userBgroup" name="userBgroupInput" value="">
+      <label for="userInsurance">Insurance Number</label>
+      <input type="text" id="userInsurance" name="userInoInput" value="">
+      <label for="userExpDate">Expiary Date</label>
+      <input type="date" name="userExpDateInput" value="" id="userExpDate">
+      <label for="marital">Marital Status</label>
+      <input class="form-check-input" type="radio" name="userStatus" id="userSingle">
+      <label class="form-check-label" for="userSingle">Single</label>
+      <input class="form-check-input" type="radio" name="userStatus" id="userMarried">
+      <label class="form-check-label" for="userMarried">Married</label>
+    </div>
+    <button type="submit" name="buttonSubmit" class="btn btn-primary">Register</button>
+    </form>
+  </div>
