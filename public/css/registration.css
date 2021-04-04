@@ -1,8 +1,28 @@
+
+body{
+  text-align: center;
+  background-color: #6e7c7c !important;
+  font-family: 'Merriweather', serif;
+}
 .regMainDiv{
   background-color: #ffffff;
   padding:1rem;
-  margin-top: 4rem;
+  border: solid .5rem #097a7a;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top:3rem;
+  font-family: 'Merriweather', serif;
+}
 
+input
+{
+  display: inline-block;
+
+}
+label
+{
+  padding-right: .5rem;
+  padding-left: .5rem;
 }
 h1
 {
@@ -10,6 +30,7 @@ h1
   text-align: center;
   background-color:#097a7a;
   padding:1.25rem;
+
 }
 
 h4
@@ -20,5 +41,94 @@ h4
 
 hr
 {
-  background-color: #097a7a
+  background-color: #097a7a;
+}
+
+.accountDiv
+{
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.personalDiv{
+  text-align: center;
+  margin-top: 3rem;
+}
+
+
+#ccInput
+{
+  width:2.5rem;
+}
+
+
+textarea{
+  vertical-align: middle;
+  display: inline-block;
+}
+
+#userCountry{
+  width: 15rem;
+}
+#userState{
+
+  width: 15rem;
+
+}
+#userBgroup
+{
+  display: inline-block;
+  width:15rem;
+}
+.midPersonalDiv{
+  margin: 2rem 0;
+}
+
+#CityInput
+{
+
+  width:15rem;
+}
+
+#zipInput{
+  width:15rem;
+
+}
+.otherPersonalDiv
+{
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+#dob
+{
+  margin-left: 2rem;
+}
+#mstatus
+{
+  margin-left:3.5rem;
+}
+#expDt
+{
+  margin-left:2rem;
+}
+
+#regBtn
+{
+  display:block;
+  margin: 2rem auto;
+  background-color: #097a7a;
+  width:10rem;
+  height: 3rem;
+}
+.addressDiv
+{
+  margin-top: 1.5rem;
+}
+.passDetails
+{
+  display: block;
+  font-size: 13px;
+  margin:1.5rem auto;
+  font-style: italic;
 }

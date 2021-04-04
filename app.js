@@ -2,7 +2,10 @@
 const express= require("express");
 const bodyParser=require("body-parser");
 const mysql=require("mysql");
+const jsalert=require("js-alert");
+const unirest=require("unirest");
 const pushDataDb=[];
+const pushLoginDataDB=[];
 
 const app=express();
 
@@ -32,6 +35,10 @@ res.render("registration");
 });
 
 app.post("/registration",function(req,res){
+  let pwd=req.body.userPasswordInput;
+  let conPwd=req.body.userConfPasswordInput;
+  let email=req.body.userEmailInput;
+
     let userData={name:req.body.userNameInput,
     mobileNum:req.body.userCcInput+req.body.userMobNoInput,
     address:req.body.userAddressInput,
@@ -44,7 +51,7 @@ app.post("/registration",function(req,res){
     bloodgrp:req.body.userBgroupInput,
     insurance:req.body.userInoInput,
     insexpdt:req.body.userExpDateInput,
-    mStatus:req.body.userStatusInput,
+    mStatus:req.body.userStatusInput
   };
 
   for(let key in userData){
@@ -56,13 +63,25 @@ app.post("/registration",function(req,res){
             }
 
 let sql="INSERT INTO `patient_details`(`patient_id`,`patient_name`,`patient_mobile`,`patient_address`,`patient_country`,`patient_state`,`patient_city`,`zipcode`,`gender`,`patient_DOB`,`patient_blood`,`patient_insurance`,`patient_insexp`,`patient_mstatus`)VALUES(default,?,?,?,?,?,?,?,?,?,?,?,?,?);";
-con.query(sql, pushDataDb, function (err, result) {
-  if (err) throw err;
-  console.log("Number of records inserted: " + result.affectedRows);
+let loginSql="INSERT INTO `pms`.`patient_login`(`patient_id`,`patient_email`,`patient_password`)VALUES(default,'"+email+"','"+pwd+"');";
 
+if(pwd!=conPwd)
+{
+  console.log("password  Mismatch");
   res.redirect("/registration");
+}
+else{
+  con.query(sql, pushDataDb, function (err, result) {
+    if (err) throw err;
+    console.log("Number of records inserted: " + result.affectedRows);
+  });
 
-});
+  con.query(loginSql,function (err, result) {
+    if (err) throw err;
+    console.log("Number of records inserted: " + result.affectedRows);
+  });
+  res.redirect("/registration");
+}
 });
 
 app.listen(3000,function(){console.log("server started on port 3000 succesfully");});
