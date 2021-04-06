@@ -2,8 +2,7 @@
 const express= require("express");
 const bodyParser=require("body-parser");
 const mysql=require("mysql");
-const jsalert=require("js-alert");
-const unirest=require("unirest");
+const alert=require("alert");
 const pushDataDb=[];
 const pushLoginDataDB=[];
 
@@ -26,12 +25,23 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 
 app.get("/",function(req,res){
-
 res.render("index");
 });
 
 app.get("/registration",function(req,res){
 res.render("registration");
+});
+
+app.get("/appointment",function(req,res){
+res.render("appointment");
+});
+
+app.get("/tests",function(req,res){
+res.render("tests");
+});
+
+app.get("/consultation",function(req,res){
+res.render("consultation");
 });
 
 app.post("/registration",function(req,res){

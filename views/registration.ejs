@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
       <title>Registration</title>
       <link rel="stylesheet" href="css/registration.css">
       <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,11 +17,11 @@
       <h4>ACCOUNT DETAILS</h4>
       <hr>
       <label for="emailId">Email:</label>
-      <input type="email" id="emailId" name="userEmailInput" value="">
+      <input type="email" id="emailId" name="userEmailInput" value="" required />
       <label for="userPassword">Password:</label>
-      <input type="password" name="userPasswordInput" value="" id="userPassword" onkeypress="return passwordChanged();" >
+      <input type="password" name="userPasswordInput" value="" id="userPassword" onkeypress="return passwordChanged();" required />
       <label for="userConfPassword">Confirm Password:</label>
-      <input type="password" name="userConfPasswordInput" value="" id="userConfPassword">
+      <input type="password" name="userConfPasswordInput" value="" id="userConfPassword" required />
       <div class="container strengthPass">
         <span class="passDetails">Password must contain atleast 1.8 Characters 2.One Upper case 3.One Lower case 4.One Number and 5.A Special Character</span>
         <span id="strength">Password Strength:Type Password</span>
@@ -34,26 +34,26 @@
       <hr>
       <div class="container topPersonalDiv">
       <label for="nameInput">Full Name:</label>
-      <input type="text" id="nameInput" name="userNameInput" value="">
+      <input type="text" id="nameInput" name="userNameInput" required />
       <label for="mobileNoInput">Mobile number:</label>
-      <input type="text" id="ccInput" name="userCcInput" value="">
+      <input type="text" id="ccInput" name="userCcInput" value="" required />
       <input type="text" name="userMobNoInput" value="" id="mobileNoInput">
       <div class="container addressDiv">
         <label for="userAddress" class="addressInput">Address:</label>
-        <textarea name="userAddressInput" rows="3" class="addressInput" cols="40"></textarea>
+        <textarea name="userAddressInput" rows="3" class="addressInput" cols="40" required /></textarea>
       </div>
       </div>
       <div class="container-fluid midPersonalDiv">
       <label for="userCountry">Country:</label>
-      <input type="text"  id="userCountry" name="userCountryInput">
+      <input type="text"  id="userCountry" name="userCountryInput" required />
       <label for="userState">State:</label>
-      <input type="text" id="userState" name="userStateInput">
+      <input type="text" id="userState" name="userStateInput" required />
       </div>
       <div class="container-fluid bottomPersonalDiv">
       <label for="cityInput">City:</label>
-      <input type="text" id="cityInput" name="userCityInput" value="" style="width:15rem;">
+      <input type="text" id="cityInput" name="userCityInput" value="" style="width:15rem;" required />
       <label for="zipInput" class="zipInput">Zip code:</label>
-      <input type="text" id="zipInput" name="userZipInput" value="">
+      <input type="number" id="zipInput" name="userZipInput" value="" pattern="^\d{5}(?:[-\s]\d{4})?$"/>
       </div>
     </div>
     <div class="container-fluid otherPersonalDiv">
@@ -62,18 +62,18 @@
       <hr>
       <div class="container topPersonalDiv">
       <label for="genderInput">Gender:</label>
-      <input class="form-check-input" type="radio" value="Male" name="userGenderInput" id="userMale" >
+      <input class="form-check-input" type="radio" value="Male" name="userGenderInput" id="userMale" />
       <label class="form-check-label" for="userMale">Male</label>
-      <input class="form-check-input" type="radio" value="Female" name="userGenderInput" id="userFemale" >
+      <input class="form-check-input" type="radio" value="Female" name="userGenderInput" id="userFemale" />
       <label class="form-check-label" for="userFemale">Female</label>
-      <input class="form-check-input" type="radio" value="Others" name="userGenderInput" id="userOthers" >
+      <input class="form-check-input" type="radio" value="Others" name="userGenderInput" id="userOthers" />
       <label class="form-check-label" for="userOthers">Others</label>
       <label for="dobInput" id="dob">Date of Birth:</label>
-      <input type="date" name="userDobInput" value="" id="dobInput">
+      <input type="date" name="userDobInput" value="" id="dobInput" required />
       </div>
       <div class="container-fluid midPersonalDiv">
       <label for="userBgroup">Blood group:</label>
-      <select class="form-control" id="userBgroup" name="userBgroupInput">
+      <select class="form-control" id="userBgroup" name="userBgroupInput" required />
       <option>A+</option>
       <option>A-</option>
       <option>B+</option>
@@ -84,31 +84,34 @@
       <option>O-</option>
       </select>
       <label for="marital" id="mstatus">Marital Status:</label>
-      <input class="form-check-input" type="radio"  value="Single" name="userStatusInput" id="userSingle">
+      <input class="form-check-input" type="radio"  value="Single" name="userStatusInput" id="userSingle"/>
       <label class="form-check-label" for="userSingle">Single</label>
-      <input class="form-check-input" type="radio" value="Married" name="userStatusInput" id="userMarried">
+      <input class="form-check-input" type="radio" value="Married" name="userStatusInput" id="userMarried"/>
       <label class="form-check-label" for="userMarried">Married</label>
       </div>
       <div class="container-fluid bottomPersonalDiv">
       <label for="userInsurance">Insurance Number:</label>
-      <input type="text" id="userInsurance" name="userInoInput" value="">
+      <input type="text" id="userInsurance" name="userInoInput" value=""/>
       <label for="userExpDate" id="expDt">Expiary Date:</label>
-      <input type="date" name="userExpDateInput" value="" id="userExpDate" >
+      <input type="date" name="userExpDateInput" value="" id="userExpDate" />
     </div>
   </div>
   <hr>
     <button type="submit" name="buttonSubmit" class="btn btn-primary" id="regBtn" onclick="checkpassword();">Register</button>
-    </form>
   </div>
+  </form>
   <script language="javascript">
   let confPass=document.getElementById("userConfPassword");
   let pwd = document.getElementById("userPassword");
   let check=document.getElementById("matchPass");
   function checkpassword()
   {
-    if(pwd.valu!=confPass.value)
+    if(pwd.value!=confPass.value)
     {
       alert("password mismatch");
+    }
+    else {
+      alert("registration succesfull");
     }
   }
 
