@@ -44,6 +44,14 @@ app.get("/consultation",function(req,res){
 res.render("consultation");
 });
 
+app.get("/patientDisplay",function(req,res){
+
+  let displayPatient={};
+  con.query("SELECT * FROM patient_details", function (err, result, fields) {
+    res.render("patientDisplay",{display:result});
+  });
+
+});
 app.post("/registration",function(req,res){
   let pwd=req.body.userPasswordInput;
   let conPwd=req.body.userConfPasswordInput;
@@ -73,25 +81,11 @@ app.post("/registration",function(req,res){
             }
 
 let sql="INSERT INTO `patient_details`(`patient_id`,`patient_name`,`patient_mobile`,`patient_address`,`patient_country`,`patient_state`,`patient_city`,`zipcode`,`gender`,`patient_DOB`,`patient_blood`,`patient_insurance`,`patient_insexp`,`patient_mstatus`)VALUES(default,?,?,?,?,?,?,?,?,?,?,?,?,?);";
-let loginSql="INSERT INTO `pms`.`patient_login`(`patient_id`,`patient_email`,`patient_password`)VALUES(default,'"+email+"','"+pwd+"');";
-
-if(pwd!=conPwd)
-{
-  console.log("password  Mismatch");
-  res.redirect("/registration");
-}
-else{
   con.query(sql, pushDataDb, function (err, result) {
     if (err) throw err;
     console.log("Number of records inserted: " + result.affectedRows);
   });
-
-  con.query(loginSql,function (err, result) {
-    if (err) throw err;
-    console.log("Number of records inserted: " + result.affectedRows);
-  });
   res.redirect("/registration");
-}
 });
 
 app.listen(3000,function(){console.log("server started on port 3000 succesfully");});

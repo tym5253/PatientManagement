@@ -1,0 +1,35 @@
+.tableContent
+{
+  white-space: nowrap;
+  overflow-x: scroll;
+  width: 70rem;
+}
+.form-control
+{
+  display: inline-block;
+  width:15rem;
+
+}
+.search{
+  vertical-align: middle;
+  text-align: right;
+  margin:2rem auto;
+}
+
+.btn{
+  background-color: #097a7a;
+  color:white;
+  vertical-align: middle;
+}
+
+.btn:hover
+{
+  background-color: #ffffff;
+  color:black;
+  border: solid 3px #6e7c7c;
+}
+input
+{
+  height:2.75rem;
+  margin-right: .5rem;
+}

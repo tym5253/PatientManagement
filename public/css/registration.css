@@ -1,7 +1,6 @@
 
 body{
   text-align: center;
-  background-color: #6e7c7c !important;
   font-family: 'Merriweather', serif;
 }
 .regMainDiv{
@@ -98,7 +97,7 @@ textarea{
 {
   text-align: center;
   margin-top: 3rem;
-  margin-bottom: 2rem; 
+  margin-bottom: 2rem;
 }
 #dob
 {
