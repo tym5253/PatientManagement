@@ -33,3 +33,6 @@ input
   height:2.75rem;
   margin-right: .5rem;
 }
+#hiddenElement{
+  display: none;
+}

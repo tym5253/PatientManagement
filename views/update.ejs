@@ -1,0 +1,113 @@
+<%-include("partials/header")%>
+
+      <link rel="stylesheet" href="css/registration.css">
+  <div class="container regMainDiv ">
+    <h1>REGISTRATION</h1>
+    <form class="" action="/update/record" method="post">
+    <div class="container-fluid personalDiv">
+      <hr>
+      <h4>PERSONAL DETAILS OF PATIENT</h4>
+      <hr>
+      <%for(let key in displayRec){%>
+      <div class="container topPersonalDiv">
+      <label for="nameInput">Full Name:</label>
+      <input type="text" id="nameInput" name="userNameInput" value="<%=displayRec[key].patient_name%>" required />
+      <label for="mobileNoInput">Mobile number:</label>
+      <input type="text" id="ccInput" name="userCcInput" value="" required />
+      <input type="text" name="userMobNoInput" value="<%=displayRec[key].patient_mobile%>" id="mobileNoInput">
+      <div class="container addressDiv">
+        <label for="userAddress" class="addressInput">Address:</label>
+        <textarea name="userAddressInput" rows="3" class="addressInput" cols="40"  required ><%=displayRec[key].patient_address%></textarea>
+      </div>
+      </div>
+      <div class="container-fluid midPersonalDiv">
+      <label for="userCountry">Country:</label>
+      <input type="text"  id="userCountry" name="userCountryInput" value="<%=displayRec[key].patient_country%>"required />
+      <label for="userState">State:</label>
+      <input type="text" id="userState" name="userStateInput" value="<%=displayRec[key].patient_state%>" required />
+      </div>
+      <div class="container-fluid bottomPersonalDiv">
+      <label for="cityInput">City:</label>
+      <input type="text" id="cityInput" name="userCityInput"  style="width:15rem;" value="<%=displayRec[key].patient_city%>" required />
+      <label for="zipInput" class="zipInput">Zip code:</label>
+      <input type="number" id="zipInput" name="userZipInput" value="<%=displayRec[key].zipcode%>" pattern="^\d{5}(?:[-\s]\d{4})?$"/>
+      </div>
+    </div>
+    <div class="container-fluid otherPersonalDiv">
+      <hr>
+      <h4>OTHER DETAILS OF PATIENTS</h4>
+      <hr>
+      <div class="container topPersonalDiv">
+      <label for="genderInput">Gender:</label>
+      <%if (displayRec[key].gender==="Male"){%>
+      <input class="form-check-input" type="radio" value="Male" name="userGenderInput" id="userMale" checked />
+      <label class="form-check-label" for="userMale">Male</label>
+      <input class="form-check-input" type="radio" value="Female" name="userGenderInput" id="userFemale" /><label class="form-check-label" for="userFemale">Female</label>
+      <input class="form-check-input" type="radio" value="Others" name="userGenderInput" id="userOthers" />
+      <label class="form-check-label" for="userOthers">Others</label>
+      <%}%>
+
+      <%if(displayRec[key].gender==="Female"){%>
+        <input class="form-check-input" type="radio" value="Male" name="userGenderInput" id="userMale" />
+        <label class="form-check-label" for="userMale">Male</label>
+      <input class="form-check-input" type="radio" value="Female" name="userGenderInput" id="userFemale" checked/>
+      <label class="form-check-label" for="userFemale">Female</label>
+      <input class="form-check-input" type="radio" value="Others" name="userGenderInput" id="userOthers" />
+      <label class="form-check-label" for="userOthers">Others</label>
+      <% } %>
+
+      <%if(displayRec[key].gender==="Others"){ %>
+        <input class="form-check-input" type="radio" value="Male" name="userGenderInput" id="userMale" />
+        <label class="form-check-label" for="userMale">Male</label>
+      <input class="form-check-input" type="radio" value="Female" name="userGenderInput" id="userFemale" />
+      <label class="form-check-label" for="userFemale">Female</label>
+      <input class="form-check-input" type="radio" value="Others" name="userGenderInput" id="userOthers" checked/>
+      <label class="form-check-label" for="userOthers">Others</label>
+      <% } %>
+
+      <label for="dobInput" id="dob">Date of Birth:</label>
+      <input type="date" name="userDobInput" value="<%=displayRec[key].patient_DOB%>" id="dobInput" required />
+      </div>
+      <div class="container-fluid midPersonalDiv">
+      <label for="userBgroup">Blood group:</label>
+      <select class="form-control" id="userBgroup" name="userBgroupInput" required >
+      <option><%=displayRec[key].patient_blood%></option>
+      <option>A+</option>
+      <option>A-</option>
+      <option>B+</option>
+      <option>B-</option>
+      <option>AB+</option>
+      <option>AB-</option>
+      <option>O+</option>
+      <option>O-</option>
+      </select>
+      <label for="marital" id="mstatus">Marital Status:</label>
+      <%if(displayRec[key].patient_mstatus==="Single"){ %>
+      <input class="form-check-input" type="radio"  value="Single" name="userStatusInput" id="userSingle" checked/>
+      <label class="form-check-label" for="userSingle">Single</label>
+      <input class="form-check-input" type="radio" value="Married" name="userStatusInput" id="userMarried"/>
+      <label class="form-check-label" for="userMarried">Married</label>
+      <% } %>
+      <%if(displayRec[key].patient_mstatus==="Married"){ %>
+        <input class="form-check-input" type="radio"  value="Single" name="userStatusInput" id="userSingle" />
+        <label class="form-check-label" for="userSingle">Single</label>
+        <input class="form-check-input" type="radio" value="Married" name="userStatusInput" id="userMarried" checked/>
+        <label class="form-check-label" for="userMarried">Married</label>
+        <% } %>
+      </div>
+      <div class="container-fluid bottomPersonalDiv">
+      <label for="userInsurance">Insurance Number:</label>
+      <input type="text" id="userInsurance" name="userInoInput" value="<%=displayRec[key].patient_insurance%>"/>
+      <label for="userExpDate" id="expDt">Expiary Date:</label>
+      <input type="date" name="userExpDateInput" value="<%=displayRec[key].patient_insexp%>" id="userExpDate" />
+    </div>
+  </div>
+  <%}%>
+  <hr>
+    <button type="submit" name="buttonSubmit" class="btn btn-primary" id="regBtn">Update</button>
+  </div>
+  </form>
+
+
+
+<%-include("partials/footer")%>

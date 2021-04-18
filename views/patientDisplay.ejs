@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="css/display.css">
 <div class="container search">
 <form class="form-inline my-2 my-lg-0" action="/patientDisplay" method="post">
-     <input class="form-control mr-sm-2" type="search" placeholder="Search by Patient_id/Name">
+     <input class="form-control mr-sm-2" type="search" placeholder="Search by Patient_id/Name" name="searchInput">
      <button class="btn btn-outline-success" type="submit">Search</button>
    </form>
  </div>
@@ -25,11 +25,15 @@
     <th scope="col">Insurance Expiry Date</th>
     <th scope="col">Marital Status</th>
     <th scope="col">Delete</th>
+    <th scope="col">Update</th>
+
   </tr>
 </thead>
 <tbody>
 
-  <% for(let key in display){%>
+
+
+  <%for(let key in display){%>
     <tr>
       <td><%=display[key].patient_id%></td>
       <td><%=display[key].patient_name%></td>
@@ -45,10 +49,22 @@
       <td><%=display[key].patient_insurance%></td>
       <td><%=display[key].patient_insexp%></td>
       <td><%=display[key].patient_mstatus%></td>
-      <td><button type="button" name="button" class="btn btn-sm" id="'<%=display[key].patient_id%>'"><i class="fas fa-trash-alt"></i></button></td>
+      <td><form class="form" action="/patientDisplay/delete" method="post">
+        <input name="buttonClickedDelete" id="hiddenElement" value="<%=display[key].patient_id%>"/>
+      <button type="submit" name="button" class="btn btn-sm" id=""><i class="fas fa-trash-alt"></i></button>
+      </form>
+    </td>
+    <td><form class="form" action="/update" method="post">
+      <input name="buttonClickedUpdate" id="hiddenElement" value="<%=display[key].patient_id%>"/>
+    <button type="submit" name="button" class="btn btn-sm" id="">Update</button>
+    </form>
+  </td>
+
     </tr>
 <%}%>
+
 </tbody>
 </table>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <%-include("partials/footer")%>
