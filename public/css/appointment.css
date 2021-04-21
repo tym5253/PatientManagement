@@ -1,0 +1,56 @@
+h1
+{
+  text-align: center;
+  margin:1.5rem auto;
+}
+.addApp{
+  text-align: center;
+  margin-top: 2rem;
+}
+.fa-plus{
+  margin-right: .5rem;
+}
+
+.btn{
+  border: solid #6e7c7c 4px;
+}
+.btn:hover{
+  background-color: #097a7a;
+  color:white;
+}
+.search{
+  vertical-align: middle;
+  text-align: right;
+  margin:2rem auto;
+}
+.form-control
+{
+  display: inline-block;
+  width:15rem;
+
+}
+.tableContent
+{
+  width: 70rem;
+  margin-top: 2rem;
+}
+
+#hiddenElement{
+  display: none;
+}
+
+.deleteBtn
+{
+  background-color: #097a7a;
+  color:white;
+}
+
+.deleteBtn:hover{
+  background-color: white;
+  border: solid #6e7c7c 4px;
+  color:black;
+}
+
+.onUpdate{
+  background-color: grey;
+}

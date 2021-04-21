@@ -14,7 +14,6 @@
       font-family: 'Merriweather', serif;
     }
     .navbar{
-      height:4.5rem;
       background-color: #6e7c7c;
     }
     .homeTitle
@@ -28,9 +27,11 @@
       background-color: #097a7a;
       border:none;
     }
+
     ul{
-      margin-left: 47%;
+    text-align: right
     }
+
     .nav-link
     {
       background-color: #097a7a;
@@ -45,6 +46,18 @@
       background-color: #ffffff;
       border: solid 4px #097a7a;
     }
+
+    .links{
+      text-align: left;
+      display: inline-block;
+    }
+
+    .linksmain{
+      text-align: right;
+      padding-right: 0 
+    }
+
+
     </style>
   </head>
   <body>
@@ -58,17 +71,21 @@
         <img src="  images\samsLogo.jpg" alt="" width="50" height="35" class="d-inline-block align-text-mid" >
         SAMS Hospitals
       </a>
+      <div class="container linksmain">
+      <div class="links">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="/appointment">Appointments</a>
+              <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/tests">Tests</a>
+              <a class="nav-link" href="/appointment">Appointments</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/consultation">Consultation</a>
             </li>
           </ul>
+        </div>
+        </div>
         </div>
       </div>
     </nav>

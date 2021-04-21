@@ -1,0 +1,106 @@
+
+body{
+  text-align: center;
+  font-family: 'Merriweather', serif;
+}
+.appMainDiv{
+  background-color: #ffffff;
+  padding:1rem;
+  border: solid .5rem #097a7a;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top:3rem;
+  font-family: 'Merriweather', serif;
+}
+
+.searchPatientDiv{
+display: inline-block;
+margin:1.5rem auto;
+
+}
+
+.form-control
+{
+  width: 15rem;
+  margin:0 auto;
+  display: inline-block;
+}
+
+.btn
+{
+  background-color: #097a7a;
+  color:white;
+  vertical-align: middle;
+  margin-left: .5rem;
+  border: none;
+}
+
+.btn:hover{
+  background-color: #ffffff;
+  color:black;
+  border: solid 3px #6e7c7c;
+}
+.patientBlock
+{
+  display: inline-block;
+  margin:1.5rem auto;
+}
+
+.appDetails
+{
+display: inline-block;
+margin-top: 1.5rem;
+}
+
+.commentsDiv
+{
+  margin-top: 5rem;
+
+}
+
+input
+{
+  display: inline-block;
+}
+label
+{
+  padding-right: .5rem;
+  padding-left: .5rem;
+}
+h1
+{
+  display: block;
+  text-align: center;
+  background-color:#097a7a;
+  padding:1.25rem;
+
+}
+
+
+hr
+{
+  background-color: #097a7a;
+}
+
+
+textarea{
+  vertical-align: middle;
+  display: inline-block;
+}
+
+#appBtn
+{
+  margin-top: 1rem;
+}
+#idInput
+{
+  width: 7rem;
+}
+#mobileNoInput
+{
+  width:10rem;
+}
+#appToken
+{
+  width: 4rem;
+}

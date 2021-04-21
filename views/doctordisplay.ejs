@@ -1,0 +1,45 @@
+<%-include("partials/header")%>
+
+<link rel="stylesheet" href="css/display.css">
+<div class="container-fluid tableContent">
+<table class="table table-bordered">
+<thead class="thead-dark">
+  <tr>
+    <th scope="col">Doctor_id</th>
+    <th scope="col">Name</th>
+    <th scope="col">Mobile No.</th>
+    <th scope="col">Email</th>
+    <th scope="col">Address</th>
+    <th scope="col">Specilization</th>
+    <th scope="col">Blood Grp</th>
+    <th scope="col">Experience</th>
+    <th scope="col">Gender</th>
+    <th scope="col">DOB</th>
+    <th scope="col">DOJ</th>
+
+  </tr>
+</thead>
+<tbody>
+
+
+
+  <%for(let key in docDetails){%>
+    <tr>
+      <td><%=docDetails[key].doctor_id%></td>
+      <td><%=docDetails[key].doctor_name%></td>
+      <td><%=docDetails[key].phone_number%></td>
+      <td><%=docDetails[key].email%></td>
+      <td><%=docDetails[key].address%></td>
+      <td><%=docDetails[key].specilization%></td>
+      <td><%=docDetails[key].bloodgroup%></td>
+      <td><%=docDetails[key].experience%></td>
+      <td><%=docDetails[key].gender%></td>
+      <td><%=docDetails[key].dob%></td>
+      <td><%=docDetails[key].doj%></td>
+<%}%>
+
+</tbody>
+</table>
+</div>
+
+<%-include("partials/footer")%>

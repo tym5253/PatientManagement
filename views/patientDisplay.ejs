@@ -26,6 +26,7 @@
     <th scope="col">Marital Status</th>
     <th scope="col">Delete</th>
     <th scope="col">Update</th>
+    <th scope="col">History</th>
 
   </tr>
 </thead>
@@ -59,12 +60,15 @@
     <button type="submit" name="button" class="btn btn-sm" id="">Update</button>
     </form>
   </td>
-
+  <td><form class="form" action="/patientHistory" method="post">
+    <input name="buttonClickedHistory" id="hiddenElement" value="<%=display[key].patient_id%>"/>
+  <button type="submit" name="button" class="btn btn-sm" id="">History</button>
+  </form>
+  </td>
     </tr>
 <%}%>
 
 </tbody>
 </table>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <%-include("partials/footer")%>

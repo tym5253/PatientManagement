@@ -1,0 +1,43 @@
+<%-include("partials/header")%>
+<link rel="stylesheet" href="css/newAppointment.css">
+<div class="container appMainDiv">
+  <h1>Appointment</h1>
+    <div class="container searchPatientDiv">
+      <form action="/newAppointment/patient" method="post">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search by Patient_id/Name" name="patientSearch">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+        </div>
+        <form action="/newAppointment" method="post">
+        <div class="container patientBlock">
+          <%for(let key in fetchPatientDetails){%>
+          <label for="idInput">Patient ID:</label>
+          <input type="text" id="idInput" name="patientIdInput" value="<%=fetchPatientDetails[key].patient_id%>" required />
+          <label for="nameInput">Patient Name:</label>
+          <input type="text" id="nameInput" name="patientNameInput" value="<%=fetchPatientDetails[key].patient_name%>" required />
+          <label for="mobileNoInput">Mobile number:</label>
+          <input type="text" name="patientMobNoInput"  id="mobileNoInput" value="<%=fetchPatientDetails[key].patient_mobile%>" required />
+          <% } %>
+        </div>
+        <label for="doctorName">Doctor Name:</label>
+        <select class="form-control" id="doctorName" name="doctorNameInput" required>
+          <%for(let key in fetchdocDetails){%>
+          <option><%=fetchdocDetails[key].doctor_name%></option>
+          <% } %>
+          </select>
+    <div class="container appDetails">
+    <label for="appDate">Date:</label>
+    <input type="date" id="appDate" name="appDateInput" required value="<%=fetchDate%>"/>
+    <label for="appTime">Time:</label>
+    <input type="time" id="appTime" name="appTimeInput" value="" required />
+    <label for="appToken">Token</label>
+    <input type="number" id="appToken" name="appTokenInput" value="" />
+    <div class="container commentsDiv">
+    <label for="appComments" class="zipInput">Comments</label>
+    <textarea id="appComments" name="appCommentsInput" rows="5" cols="50"></textarea>
+    </div>
+    <button type="submit" name="buttonSubmit" class="btn btn-lg" id="appBtn" >Register</button>
+    </div>
+</form>
+</div>
+<%-include("partials/footer")%>

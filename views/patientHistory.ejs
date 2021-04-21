@@ -1,0 +1,44 @@
+<%- include("partials/header")%>
+<link rel="stylesheet" href="css/patientHistory.css">
+<div class="container-fluid tableContent">
+  <h1>Patients History</h1>
+<table class="table table-bordered">
+<thead class="thead-dark">
+  <tr>
+    <th scope="col">Patient Id</th>
+    <th scope="col">Name</th>
+    <th scope="col">Appointment Id</th>
+    <th scope="col">Consultation Id</th>
+    <th scope="col">Doctor Id</th>
+    <th scope="col">Date of Appointment</th>
+    <th scope="col">Payment</th>
+    <th scope="col">Problem</th>
+  </tr>
+</thead>
+<tbody>
+  
+  <%for(let key in display){%>
+    <%  function convert(str) {
+      var date = new Date(str),
+        mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+        day = ("0" + date.getDate()).slice(-2);
+      return [day,mnth,date.getFullYear()].join("-");
+    }
+
+    %>
+
+  <tr>
+  <td ><%=display[key].patient_id%></td>
+  <td ><%=display[key].patient_name%></td>
+  <td ><%=display[key].appointment_id %></td>
+  <td ><%=display[key].consult_id%></td>
+  <td ><%=display[key].doctor_id%></td>
+  <td ><%=convert(display[key].app_date)%></td>
+  <td ><%=display[key].payment_due%></td>
+  <td ><%=display[key].problem%></td>
+</tr>
+<%}%>
+</tbody>
+</table>
+</div>
+<%- include("partials/footer")%>

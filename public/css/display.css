@@ -3,6 +3,7 @@
   white-space: nowrap;
   overflow-x: scroll;
   width: 70rem;
+  margin-top: 2rem;
 }
 .form-control
 {

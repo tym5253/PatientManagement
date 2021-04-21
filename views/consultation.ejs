@@ -1,1 +1,41 @@
 <%- include("partials/header.ejs") %>
+<link rel="stylesheet" href="css/consult.css">
+<div class="container conMainDiv">
+  <h1>Consult Details</h1>
+    <div class="container searchPatientDiv">
+      <form action="/consultation/patient" method="post">
+        <input class="form-control mr-sm-2" type="search" placeholder="Enter Appointment Id" name="patientSearch">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <form action="/consultation" method="post">
+      <div class="container patientBlock">
+        <%for(let key in fetchPatientDetails){%>
+        <label for="idInput">Patient ID:</label>
+        <input type="text" id="idInput" name="patientIdInput" value="<%=fetchPatientDetails[key].patient_id%>" required />
+        <label for="nameInput">Patient Name:</label>
+        <input type="text" id="nameInput" name="patientNameInput" value="<%=fetchPatientDetails[key].patient_name%>" required />
+        <label for="doctorId">Doctor Id:</label>
+        <input type="text" id="doctorId" name="doctorIdInput" required>
+      </div>
+      <div class="container appDetails">
+        <label for="appId">Appointment Id:</label>
+        <input type="text" id="appId" name="appIdInput" value="<%=fetchPatientDetails[key].appointment_id%>" required />
+      <label for="appDate">Date:</label>
+      <input type="date" id="appDate" name="appDateInput" value="<%=fetchPatientDetails[key].date%>"/>
+      <label for="conPayment">Payment:</label>
+      <select class="form-control" id="conPayment" name="conPayInput" required>
+        <option>Paid</option>
+        <option>Due</option>
+        </select>
+        <div class="container probDiv">
+        <label for="probDetails" >Problem:</label>
+        <textarea id="probDetails" name="problemInput" rows="5" cols="50"></textarea>
+        </div>
+      </div>
+      <button type="submit" name="buttonSubmit" class="btn btn-lg" id="appBtn" >Record</button>
+
+      </form>
+      </div>
+          <% } %>
+
+<%- include("partials/footer.ejs") %>
